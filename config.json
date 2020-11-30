@@ -14,7 +14,7 @@
     "login_image" : "loginicon.svg",
     "admin_username" : "pinaki",
     "admin_pass" : "abc",
-    "upload_location" : "C:\\Users\\PINAKI\\PycharmProjects\\flaskwebdev\\static\\img/postimage", //it is my local path
+    "upload_location" : "C:\\Users\\PINAKI\\PycharmProjects\\flaskwebdev\\static\\img/postimage", 
     "res_msg_true" : "Image Successfully Uploaded",
     "res_msg_false" : "Please select Image",
     "b_success" : "alert-success text-success",
