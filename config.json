@@ -1,0 +1,26 @@
+{
+  "params":
+  {
+    "local_server" : "True",
+    "local_uri" : "mysql://root:@localhost/techblogdb",
+    "prod_uri" : "mysql://root:@localhost/techblogdb",
+    "twitter_url" : "https://twitter.com/techblog",
+    "fb_url" : "https://facebook.com/techblog",
+    "git_url" : "https://github.com/techblog",
+    "brand_name" : "TechBlog",
+    "mail_user" : "chkaraborty.pinaki@gmail.com",
+    "mail_pass" : "pinaki@7076",
+    "show_posts" : 3,
+    "login_image" : "loginicon.svg",
+    "admin_username" : "pinaki",
+    "admin_pass" : "abc",
+    "upload_location" : "C:\\Users\\PINAKI\\PycharmProjects\\flaskwebdev\\static\\img/postimage",
+    "res_msg_true" : "Image Successfully Uploaded",
+    "res_msg_false" : "Please select Image",
+    "b_success" : "alert-success text-success",
+    "b_danger" : "alert-danger text-danger"
+  }
+
+
+
+}

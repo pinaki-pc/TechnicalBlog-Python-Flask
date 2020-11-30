@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/hom-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Pannel</h1>
+            <span class="subheading">Let's go for checkout posts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="table-responsive-md">
+          <div class="clearfix">
+            <a href="/logout"><button class="btn btn-primary float-right">Logout</button></a>
+            <a href="/newpost/0"><button class="btn btn-primary float-left">Add a New Post</button></a>
+          </div>
+            <hr>
+          <h1>Upload a File</h1>
+            <form action="/uploader" method="post" enctype="multipart/form-data" class="pb-2"> 
+              <div class="clearfix mb-3">
+                <input type="file" name="fileToUpload" id="fileToUpload" class="float-left"><br>
+                <input type="text" name="slno" placeholder="Enter post sl no" class="form-control float-right">
+                <label class="text-danger" style="font-size: 3px;">* image name should not contain any space</label><br>
+                <label class="text-danger" style="font-size: 3px;">* Enter valid post Sl No. (between posts)</label>
+                <button type="submit" class="btn btn-primary float-right mt-3">Upload</button>
+              </div> 
+
+              {%  if(msg!=NULL):  %}
+              <div class="{{msg}} form-control">{{text}}</div> 
+              {% endif %}
+            </form>
+            <hr>
+          <h1>Edit Posts</h1>
+          <form action="/search" method="post">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Search Post serial No." aria-label="Recipient's username" name="search" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="button-addon2" style="height: 47px;">Button</button>
+              </div>
+            </div>
+          </form>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Slno.</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in post %}
+      <tr>
+        <th scope="row">{{ item.sno }}</th>
+        <td>{{ item.p_title }}</td>
+        <td>{{ item.p_date }}</td>
+        <td><a href="/edit/{{item.sno}}"><button class="btn btn-primary">Edit</button></a></td>
+        <td><a href="/delete/{{item.sno}}"><button class="btn btn-primary">delete</button></a></td>
+      </tr>
+      {% endfor %}
+  </tbody>
+
+</table>
+</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

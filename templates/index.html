@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/hom-bg.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Technical Blog</h1>
+            <span class="subheading">- A Blog for every technician -</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+      	<!-- TODO: fetch values from db using for loops -->
+      	<!-- start loop hear -->
+        {% for catch_post in post %}
+
+        <div class="post-preview">
+          <a href="/post/{{ catch_post.p_slug }}">
+            <h2 class="post-title">
+              {{ catch_post.p_title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ catch_post.p_desc[0:100] }} ...
+            </h3>
+          </a>
+          <p class="post-meta">Posted by 
+            <a href="#">{{ catch_post.p_author }}</a>
+            on {{ catch_post.p_date }}</p>
+        </div>
+
+        <!-- end for loop -->
+        <hr>
+      {% endfor %}  
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+          <a class="btn btn-primary float-left" href="{{prev}}">&larr; Previous </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
